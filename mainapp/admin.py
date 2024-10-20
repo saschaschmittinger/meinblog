@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import BlogContentModel
+ 
 
 
-class BlogContentAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug':['title']}
+# class BlogContentAdmin(admin.ModelAdmin):
+   # prepopulated_fields = {'slug':['title']}
 
-admin.site.register(BlogContentModel, BlogContentAdmin)
+# admin.site.register(beisppielmodel , BlogContentAdmin)

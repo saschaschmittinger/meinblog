@@ -1,9 +1,10 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de-DE">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "dist/styles.css" %}">
 
     {% if title %}
     <title>{{title}} </title>
@@ -16,5 +17,7 @@
     
     {% block start %}
     {% endblock start %}
+
+    <script src="{% static "js/flowbite.min.js" %}"></script>
 </body>
 </html>
