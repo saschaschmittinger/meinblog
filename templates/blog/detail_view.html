@@ -1,0 +1,12 @@
+
+{% load static %}
+{% load markdown_extras %}
+
+
+{% block start %}
+    <h2>{{ post.title }} </h2>
+    <p>Datum: <small>{{ post.publish }} by {{ post.author}} </small> </p>
+
+    <p> {{ post.body | markdown | safe}} </p>
+
+{% endblock start %}

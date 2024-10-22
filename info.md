@@ -1,4 +1,4 @@
-# Time: 00:41:16
+# Time: 01:23:24
 
 #####
 
@@ -19,13 +19,8 @@ extend: {},
 plugins: [require("flowbite/plugin")],
 };
 
-Models:
+ 
+ 
 
-class BlogContentModel(models.Model):
-pass
+ 
 
-class Meta:
-verbose_name_plural = 'Markdown content'
-
-     def __str__(self):
-     return self.title

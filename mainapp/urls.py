@@ -1,6 +1,13 @@
 from django.urls import path
 from .views import *
 
-urlpatterns =[
-    path('',BlogContent_view.as_view() , name='home_view')
+app_name = "blog"
+
+urlpatterns = [
+    path("", PostView.as_view(), name="post_detail"),
+    path(
+        "<int:year>/<int:month>/<int:day>/<slug:post>/",
+        post_detail,
+        name="post_detail",
+    ),
 ]
