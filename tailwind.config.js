@@ -1,7 +1,11 @@
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./templates/**/", "./node_modules/flowbite/**/*.js"], // updated line here!
+  content: [
+    "./templates/**/",
+    "./node_modules/flowbite/**/*.js",
+    "./mainapp/**/*.py",
+  ], // updated line here!
   theme: {
     extend: {
       colors: {

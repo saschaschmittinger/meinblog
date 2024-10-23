@@ -125,9 +125,22 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = "static_root"
 
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = "images/media"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
+
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+EMAIL_HOST = "smtp-mail.outlook.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "ssc_consult@outlook.com"
+EMAIL_HOST_PASSWORD = "..Miriam02"
+EMAIL_USE_TLS = True
