@@ -4,9 +4,16 @@
 
 
 {% block start %}
-    <h2>{{ post.title }} </h2>
-    <p>Datum: <small>{{ post.publish }} by {{ post.author}} </small> </p>
 
-    <p> {{ post.body | markdown | safe}} </p>
+  
+
+    <h2>{{ post.title }} </h2>
+     <p>Datum: <small>{{ post.publish }} by {{ post.author}} </small> </p>
+
+          {{ post.body | markdown | safe}}
+    <p>
+        <a href="{% url "blog:post_share" post.id %}">Share this post</a>
+    </p>
+
 
 {% endblock start %}

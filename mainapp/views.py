@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.mail import send_mail
 from django.views import generic
 from .models import Post
 from .form import EmailPostForm
@@ -26,6 +27,7 @@ def post_detail(request, year, month, day, post):
 
 def post_share(request, post_id):
     post = get_object_or_404(Post, id=post_id, status="published")
+    sent = False
     if request.method == "POST":
         form = EmailPostForm(request.POST)
         if form.is_valid():
@@ -34,11 +36,13 @@ def post_share(request, post_id):
             post_url = request.build_absolute_uri(post.get_absolute_url())
             subject = f"{cd['name']} recommends you read" f"{post.title}"
             message = (
-                f"Read {post.title} at {post.url}\n\n"
-                f"{cd['name']}\s comments:{cd['commends']}"
+                f"Read {post.title} at {post_url}\n\n"
+                f"{cd['name']}\s comments:{cd['comments']}"
             )
+            send_mail(subject, message, "ssc_consult@outlook.com", [cd["to"]])
+            sent = True
 
     else:
         form = EmailPostForm()
-    context = {"post": post, "form": form}
+    context = {"post": post, "form": form, "sent": sent}
     return render(request, "blog/share.html", context)
